@@ -34,6 +34,8 @@ nav{position:sticky;top:0;z-index:5;background:rgba(246,243,238,.94);backdrop-fi
 .brands-row .tab[aria-pressed=true]{background:none;color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--gold)}
 .empty{grid-column:1/-1;text-align:center;color:var(--sub);padding:60px 0;font-size:14px}
 .note{margin-top:10px;font-size:12px;color:var(--sub);text-align:center}
+#toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,10px);max-width:calc(100% - 32px);width:max-content;background:rgba(21,20,18,.92);color:#fff;font-size:13px;line-height:1.5;padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
 
 main{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
 .count{font-size:13px;color:var(--sub);margin-bottom:16px}
@@ -151,12 +153,31 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 let cur = "all", brand = "all";
 
 // 휴대폰이면 당근 앱을 먼저 열고, 앱이 없으면 웹 프로필로 이동
-function askDaangn(e){
-  e.preventDefault();
+function copyText(s){
+  try { navigator.clipboard.writeText(s); return; } catch(_) {}
+  const ta = document.createElement("textarea"); ta.value = s; ta.setAttribute("readonly",""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+  document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch(_) {} ta.remove();
+}
+function toast(msg){
+  let el = document.getElementById("toast");
+  if (!el) { el = document.createElement("div"); el.id = "toast"; document.body.appendChild(el); }
+  (dlg.open ? dlg : document.body).appendChild(el);
+  el.textContent = msg; el.classList.add("on");
+  clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove("on"), 3500);
+}
+function goDaangn(){
   if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) { window.open(WEB_URL, "_blank", "noopener"); return; }
   const t = setTimeout(() => { location.href = WEB_URL; }, 1600);
   document.addEventListener("visibilitychange", () => { if (document.hidden) clearTimeout(t); }, { once: true });
   location.href = APP_URL;
+}
+function askDaangn(e){
+  e.preventDefault();
+  const msg = e.target.closest(".ask").dataset.msg;
+  if (!msg) { goDaangn(); return; }
+  copyText(msg);
+  toast("문의 내용을 복사했어요. 채팅창에 붙여넣기만 하세요.");
+  if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) setTimeout(goDaangn, 700); else goDaangn();
 }
 document.addEventListener("click", e => { const a = e.target.closest(".ask"); if (a) askDaangn(e); });
 
@@ -222,8 +243,8 @@ function open(id){
       <p class="intro">${esc(i.intro)}</p>
       <table>${i.rows.map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</table>
       ${i.auth ? `<p class="auth">${esc(i.auth)}</p>` : ""}
-      <a class="btn ask" href="${WEB_URL}">당근에서 문의하기</a>
-      <p class="note">채팅에서 "${esc(i.brand)} ${esc(i.title)}" 상품이라고 말씀해 주세요.</p>
+      <a class="btn ask" href="${WEB_URL}" data-msg="${esc(`안녕하세요, 엣지걸 사이트 보고 연락드려요. ${i.brand} ${i.title} (${won(i.price)}) 상품 문의드립니다.`)}">당근에서 문의하기</a>
+      <p class="note">누르면 문의 내용이 자동으로 복사돼요.<br>당근 채팅창을 길게 눌러 붙여넣기만 하시면 돼요.</p>
     </div>`;
   const gal = document.getElementById("gal"), th = document.getElementById("th");
   th.onclick = e => { const b=e.target.closest("button"); if(b) gal.scrollTo({left: gal.clientWidth*b.dataset.n, behavior:"smooth"}); };
