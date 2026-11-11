@@ -45,11 +45,14 @@ main{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
 .car{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .car::-webkit-scrollbar{display:none}
 .car img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
-.ph .n{position:absolute;right:8px;bottom:8px;background:rgba(21,20,18,.7);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px;pointer-events:none}
+.ph .n{position:absolute;right:8px;top:8px;background:rgba(21,20,18,.7);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px;pointer-events:none}
 .arw{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 1px 4px rgba(0,0,0,.18);font-size:20px;line-height:34px;text-align:center;color:var(--ink);opacity:0;transition:opacity .2s;z-index:2}
 .arw.l{left:8px}.arw.r{right:8px}
 .ph:hover .arw,.gwrap:hover .arw{opacity:1}
-@media(hover:none){.arw{display:none}}
+@media(hover:none){.arw{opacity:.85;width:28px;height:28px;line-height:27px;font-size:18px}.arw.l{left:6px}.arw.r{right:6px}}
+.dts{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:5px;pointer-events:none;z-index:1}
+.dts i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(0,0,0,.18);transition:background .2s,width .2s}
+.dts i.on{background:var(--ink);width:14px;border-radius:3px}
 .arw[hidden]{display:none}
 .gwrap{position:relative}
 .b{margin-top:12px;font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:600}
@@ -69,8 +72,8 @@ footer b{color:var(--ink);font-weight:600}
 /* 상세 */
 dialog{border:0;padding:0;width:100%;max-width:980px;max-height:92vh;margin:auto;background:var(--card);color:var(--ink)}
 dialog::backdrop{background:rgba(15,14,12,.6)}
-.d{display:grid;grid-template-columns:1fr;max-height:92vh;overflow:auto}
-@media(min-width:820px){.d{grid-template-columns:1.1fr 1fr}}
+.d{display:grid;grid-template-columns:minmax(0,1fr);max-height:92vh;overflow:auto}
+@media(min-width:820px){.d{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
 .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:#fff;scrollbar-width:none}
 .gal::-webkit-scrollbar{display:none}
 .gal img{flex:none;width:100%;aspect-ratio:1/1;object-fit:contain;scroll-snap-align:start;background:#fff}
@@ -185,8 +188,11 @@ function renderGrid(){
 function bindCarousel(box){
   const car = box.querySelector(".car,.gal"), n = box.querySelector(".n"), l = box.querySelector(".arw.l"), r = box.querySelector(".arw.r");
   const total = car.children.length;
+  let dts = null;
+  if (total > 1) { dts = document.createElement("div"); dts.className = "dts"; dts.innerHTML = "<i class=on></i>" + "<i></i>".repeat(total-1); (car.closest(".ph,.gwrap")||box).appendChild(dts); }
   const update = () => {
     const k = Math.round(car.scrollLeft / car.clientWidth);
+    if (dts) [...dts.children].forEach((d,j) => d.classList.toggle("on", j===k));
     if (n) n.textContent = `${k+1} / ${total}`;
     if (l) l.hidden = k===0;
     if (r) r.hidden = k===total-1;
