@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엣지걸 EDGE GIRL</title>
+<meta name="description" content="파주 운정 명품·중고명품 셀렉트 숍 엣지걸">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#f6f3ee; --card:#fffdf9; --ink:#1b1a18; --sub:#6f6a62; --line:#e4ded4;
+  --gold:#9b7b4f; --dark:#151412;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+header{background:var(--dark);color:#f3ece0;text-align:center;padding:44px 16px 36px}
+header img{width:76px;height:76px;border-radius:50%;margin:0 auto 18px;border:1px solid #3a352d}
+.word{font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:.32em;padding-left:.32em;font-weight:500}
+.tag{margin-top:8px;font-size:13px;letter-spacing:.08em;color:#b9ad99}
+.brands{margin-top:22px;font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.22em;color:#d8c6a4}
+
+nav{position:sticky;top:0;z-index:5;background:rgba(246,243,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs{max-width:1180px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--sub);background:var(--card)}
+.tab[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.brands-row{padding-top:0;gap:4px}
+.brands-row .tab{border:0;background:none;border-radius:0;padding:6px 10px;font-size:13px;letter-spacing:.02em}
+.brands-row .tab[aria-pressed=true]{background:none;color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--gold)}
+.empty{grid-column:1/-1;text-align:center;color:var(--sub);padding:60px 0;font-size:14px}
+.note{margin-top:10px;font-size:12px;color:var(--sub);text-align:center}
+
+main{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
+.count{font-size:13px;color:var(--sub);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:34px 22px}}
+@media(min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}}
+.item{text-align:left;display:block;width:100%}
+.ph{aspect-ratio:1/1;background:#fff;border:1px solid var(--line);overflow:hidden;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.item:hover .ph img{transform:scale(1.04)}
+.ph .n{position:absolute;right:8px;bottom:8px;background:rgba(21,20,18,.7);color:#fff;font-size:11px;padding:2px 7px;border-radius:999px}
+.b{margin-top:12px;font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:600}
+.t{margin-top:3px;font-size:15px;font-weight:500;line-height:1.35}
+.s{margin-top:4px;font-size:12px;color:var(--sub)}
+.p{margin-top:6px;font-size:16px;font-weight:700}
+
+.visit{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 16px;text-align:center}
+.visit h2{font-family:"Noto Serif KR",serif;font-size:20px;font-weight:600}
+.visit p{margin-top:10px;color:var(--sub);font-size:14px}
+.btn{display:inline-block;margin-top:20px;background:#ff6f0f;color:#fff;padding:14px 26px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none}
+
+footer{padding:30px 16px 50px;font-size:12px;color:var(--sub);max-width:1180px;margin:0 auto;line-height:1.9}
+footer b{color:var(--ink);font-weight:600}
+.todo{background:#fff4d6;color:#7a5a00;padding:0 4px;border-radius:3px}
+
+/* 상세 */
+dialog{border:0;padding:0;width:100%;max-width:980px;max-height:92vh;margin:auto;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(15,14,12,.6)}
+.d{display:grid;grid-template-columns:1fr;max-height:92vh;overflow:auto}
+@media(min-width:820px){.d{grid-template-columns:1.1fr 1fr}}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:#fff;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal img{flex:none;width:100%;aspect-ratio:1/1;object-fit:contain;scroll-snap-align:start;background:#fff}
+.dots{display:flex;gap:6px;justify-content:center;padding:10px 0 4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--ink)}
+.info{padding:22px 20px 28px}
+.info .t{font-family:"Noto Serif KR",serif;font-size:21px;font-weight:600}
+.info .p{font-size:22px;margin-top:10px}
+.intro{margin-top:16px;font-size:14px;color:#3d3a35}
+table{width:100%;margin-top:18px;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+th{width:84px;color:var(--sub);font-weight:500}
+.auth{margin-top:14px;font-size:13px;color:var(--gold)}
+.info .btn{display:block;text-align:center}
+.close{position:sticky;top:0;float:right;margin:10px 10px -46px 0;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);font-size:20px;z-index:2}
+.thumbs{display:flex;gap:6px;padding:8px 12px 14px;overflow-x:auto}
+.thumbs button{flex:none;width:52px;height:52px;border:1px solid var(--line);opacity:.55}
+.thumbs button.on{opacity:1;border-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+</style>
+</head>
+<body>
+<header>
+  <img src="img/logo.jpg" alt="엣지걸 로고">
+  <div class="word">EDGE GIRL</div>
+  <div class="tag">명품 · 중고명품 셀렉트 숍 &nbsp;|&nbsp; 파주 운정</div>
+  <div class="brands">LOUIS VUITTON · CHANEL · GUCCI · PRADA · GOYARD</div>
+</header>
+
+<nav><div class="tabs" id="tabs"></div><div class="tabs brands-row" id="btabs"></div></nav>
+
+<main>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section class="visit">
+  <h2>구매 문의는 당근 채팅으로 받고 있어요</h2>
+  <p>궁금한 상품의 이름을 남겨 주시면 상세 사진과 상태를 안내해 드립니다.</p>
+  <a class="btn ask" href="#">당근에서 문의하기</a>
+  <p class="note">휴대폰에서는 당근 앱의 엣지걸 프로필이 바로 열려요. 프로필의 '채팅' 버튼을 눌러 주세요.</p>
+</section>
+
+<footer>
+  <b>엣지걸 (EDGE GIRL)</b><br>
+  대표자 고현정 · 사업자등록번호 794-68-00202<br>
+  통신판매업 신고번호 제2026-경기파주-4583호<br>
+  주소 경기도 파주시 심학산로 628, 18층 1830호 (야당동, 케이힐스)<br>
+  전화 080-003-1004 (당근 안심번호) · 채팅 문의는 당근에서 24시간 받아요<br>
+  상품 사진은 실제 판매 상품입니다. 판매가 완료된 상품은 순차적으로 정리됩니다.
+</footer>
+
+<dialog id="dlg"><div class="d" id="detail"></div></dialog>
+
+<script>
+const ITEMS = [{"id": "gucci_gg_ballcap", "brand": "구찌", "name": "구찌 GG 볼캡 XL", "title": "GG 패턴 볼캡", "price": 260000, "state": "최상급 (2~3회 착용)", "cat": "wear", "intro": "구찌의 시그니처 GG 패턴이 돋보이는 볼캡입니다. 어디에나 잘 어울리는 기본 디자인이며, 가볍고 편안해 데일리로 착용하기 좋습니다.", "rows": [["모델", "GG 패턴 볼캡"], ["사이즈", "XL (넉넉한 사이즈, 줄여서 착용 가능)"], ["상태", "최상급 (2~3회 착용)"]], "auth": "정품입니다.", "imgs": ["img/gucci_gg_ballcap/01.jpg", "img/gucci_gg_ballcap/02.jpg", "img/gucci_gg_ballcap/03.jpg"]}, {"id": "gucci_neo_canvas_wallet", "brand": "구찌", "name": "구찌 네오캔버스 반지갑", "title": "네오 캔버스 남성 반지갑", "price": 428000, "state": "새상품", "cat": "wallet", "intro": "구찌의 시그니처 GG 수프림 캔버스 소재로 제작된 남성 반지갑입니다. 내부에 카드 슬롯과 지폐 수납 공간이 넉넉하게 구성되어 있으며, 깔끔한 디자인으로 데일리 아이템으로 좋습니다.", "rows": [["모델", "네오 캔버스 남성 반지갑"], ["상태", "새상품"], ["정가", "520,000원"]], "auth": "정품입니다.", "imgs": ["img/gucci_neo_canvas_wallet/01.jpg", "img/gucci_neo_canvas_wallet/02.jpg", "img/gucci_neo_canvas_wallet/03.jpg", "img/gucci_neo_canvas_wallet/04.jpg"]}, {"id": "goyard_clutch_mm_navy", "brand": "고야드", "name": "고야드 클러치 MM 네이비", "title": "클러치백 MM 네이비", "price": 860000, "state": "최상급 (5회 정도 사용)", "cat": "bag", "intro": "고야드 특유의 패턴이 돋보이는 네이비 색상 클러치백입니다. 세련된 디자인으로 다양한 코디에 포인트를 주기 좋습니다.", "rows": [["모델", "클러치백 MM 네이비"], ["상태", "최상급 (5회 정도 사용)"], ["구성", "풀박스"]], "auth": null, "imgs": ["img/goyard_clutch_mm_navy/01.jpg", "img/goyard_clutch_mm_navy/02.jpg", "img/goyard_clutch_mm_navy/03.jpg", "img/goyard_clutch_mm_navy/04.jpg"]}, {"id": "gucci_dionysus_small", "brand": "구찌", "name": "구찌 디오니소스 스몰", "title": "디오니소스 GG 수프림 숄더백 스몰", "price": 980000, "state": "1~2회 사용 후 보관", "cat": "bag", "intro": "구찌의 시그니처 GG 수프림 캔버스 소재와 디오니소스 잠금장치가 돋보이는 숄더백입니다. 체인 스트랩으로 다양한 스타일 연출이 가능하며, 수납 공간이 넉넉해 실용적입니다.", "rows": [["모델", "디오니소스 GG 수프림 숄더백 스몰"], ["상태", "1~2회 사용 후 보관"], ["구성", "풀박스, 감정서"]], "auth": "감정서를 함께 드립니다.", "imgs": ["img/gucci_dionysus_small/01.jpg", "img/gucci_dionysus_small/02.jpg", "img/gucci_dionysus_small/03.jpg", "img/gucci_dionysus_small/04.jpg", "img/gucci_dionysus_small/05.jpg", "img/gucci_dionysus_small/06.jpg", "img/gucci_dionysus_small/07.jpg"]}, {"id": "gucci_metal_watch_silver", "brand": "구찌", "name": "구찌 여성 메탈 시계", "title": "여성 메탈 시계 실버", "price": 830000, "state": "새상품급 (5회 정도 착용)", "cat": "acc", "intro": "깔끔한 디자인의 구찌 여성 메탈 시계 실버 색상입니다. 어떤 스타일에도 잘 어울리며 손목에 포인트를 주기 좋습니다.", "rows": [["모델", "여성 메탈 시계 실버"], ["상태", "새상품급 (5회 정도 착용)"], ["특이 사항", "흠집, 깨진 곳 없음"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/gucci_metal_watch_silver/01.jpg", "img/gucci_metal_watch_silver/02.jpg", "img/gucci_metal_watch_silver/03.jpg"]}, {"id": "prada_milano_sneakers_beige", "brand": "프라다", "name": "프라다 밀라노 베이지", "title": "밀라노 리나일론 스니커즈 베이지", "price": 650000, "state": "최상급", "cat": "shoes", "intro": "캐주얼한 차림은 물론 세미 정장에도 매치하기 좋은 스니커즈입니다. 발이 편안하면서도 스타일을 살려 줍니다.", "rows": [["모델", "밀라노 리나일론 스니커즈 베이지"], ["상태", "최상급"]], "auth": null, "imgs": ["img/prada_milano_sneakers_beige/01.jpg", "img/prada_milano_sneakers_beige/02.jpg", "img/prada_milano_sneakers_beige/03.jpg", "img/prada_milano_sneakers_beige/04.jpg", "img/prada_milano_sneakers_beige/05.jpg"]}, {"id": "chanel_espadrille_beige_37", "brand": "샤넬", "name": "샤넬 에스파듀 베이지", "title": "에스파듀 베이지", "price": 790000, "state": "깔끔한 상태 (5회 정도 착용)", "cat": "shoes", "intro": "샤넬의 시그니처 로고가 돋보이는 베이지 단화입니다. 편안한 착용감과 고급스러운 디자인으로 어디에나 잘 어울립니다.", "rows": [["모델", "에스파듀 베이지"], ["사이즈", "37 (245)"], ["상태", "깔끔한 상태 (5회 정도 착용)"], ["특이 사항", "오른쪽 신발 바깥쪽 중간에 작은 오염이 있습니다. 가볍게 세탁하면 지워지는 정도이며, 그 외 흠은 확인되지 않습니다."], ["박스", "본품과 다른 샤넬 박스에 담아 보내 드립니다"]], "auth": null, "imgs": ["img/chanel_espadrille_beige_37/01.jpg", "img/chanel_espadrille_beige_37/02.jpg", "img/chanel_espadrille_beige_37/03.jpg", "img/chanel_espadrille_beige_37/04.jpg", "img/chanel_espadrille_beige_37/05.jpg", "img/chanel_espadrille_beige_37/06.jpg"]}, {"id": "gucci_marmont_mule_black_38", "brand": "구찌", "name": "구찌 마몽 뮬 블랙 38", "title": "GG 마몽 뮬 슬리퍼 블랙", "price": 490000, "state": "전체적으로 최상급 (10회 정도 착용, 착용감 있음)", "cat": "shoes", "intro": "고급스러운 디자인의 구찌 GG 마몽 뮬 슬리퍼입니다. 심플하면서도 세련된 인상으로 어떤 코디에도 잘 어울립니다.", "rows": [["모델", "GG 마몽 뮬 슬리퍼 블랙"], ["사이즈", "38"], ["상태", "전체적으로 최상급 (10회 정도 착용, 착용감 있음)"], ["특이 사항", "밑창 보강 완료 (7만원 상당)"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/gucci_marmont_mule_black_38/01.jpg", "img/gucci_marmont_mule_black_38/02.jpg", "img/gucci_marmont_mule_black_38/03.jpg", "img/gucci_marmont_mule_black_38/04.jpg", "img/gucci_marmont_mule_black_38/05.jpg"]}, {"id": "ferragamo_ribbon_jelly_black", "brand": "페라가모", "name": "페라가모 리본 젤리슈즈", "title": "블랙 리본 젤리슈즈", "price": 300000, "state": "새상품 (미착용)", "cat": "shoes", "intro": "사랑스럽고 깔끔한 디자인의 페라가모 블랙 리본 젤리슈즈입니다. 어떤 옷에도 잘 어울리며 편안하게 착용하실 수 있습니다.", "rows": [["모델", "블랙 리본 젤리슈즈"], ["상태", "새상품 (미착용)"], ["특이 사항", "밑창 보강 완료 (7만원 상당)"]], "auth": null, "imgs": ["img/ferragamo_ribbon_jelly_black/01.jpg", "img/ferragamo_ribbon_jelly_black/02.jpg", "img/ferragamo_ribbon_jelly_black/03.jpg", "img/ferragamo_ribbon_jelly_black/04.jpg"]}, {"id": "balenciaga_denim_hightop", "brand": "발렌시아가", "name": "발렌시아가 데님 하이탑", "title": "데님 하이탑 캠퍼스 스니커즈 빈티지", "price": 450000, "state": "거의 새 상품 (1~2회 착용)", "cat": "shoes", "intro": "빈티지한 워싱이 매력적인 발렌시아가 데님 소재 하이탑 스니커즈입니다. 어떤 옷에도 잘 어울려 데일리로 신기 좋습니다.", "rows": [["모델", "데님 하이탑 캠퍼스 스니커즈 빈티지"], ["상태", "거의 새 상품 (1~2회 착용)"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/balenciaga_denim_hightop/01.jpg", "img/balenciaga_denim_hightop/02.jpg", "img/balenciaga_denim_hightop/03.jpg", "img/balenciaga_denim_hightop/04.jpg", "img/balenciaga_denim_hightop/05.jpg"]}, {"id": "balenciaga_logo_sneakers_36", "brand": "발렌시아가", "name": "발렌시아가 로고 스니커즈", "title": "로고 패턴 스니커즈 (빈티지)", "price": 340000, "state": "1~2회 착용", "cat": "shoes", "intro": "발렌시아가 특유의 감성이 담긴 로고 패턴 스니커즈입니다. 깔끔한 디자인으로 어떤 옷에도 잘 어울립니다.", "rows": [["모델", "로고 패턴 스니커즈 (빈티지)"], ["사이즈", "36"], ["상태", "1~2회 착용"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/balenciaga_logo_sneakers_36/01.jpg", "img/balenciaga_logo_sneakers_36/02.jpg", "img/balenciaga_logo_sneakers_36/03.jpg", "img/balenciaga_logo_sneakers_36/04.jpg", "img/balenciaga_logo_sneakers_36/05.jpg"]}, {"id": "chanel_patent_long_wallet", "brand": "샤넬", "name": "샤넬 페이던트 장지갑", "title": "페이던트 퀼팅 장지갑", "price": 550000, "state": "사진으로 확인해 주세요", "cat": "wallet", "intro": "샤넬의 고급스러운 페이던트 퀼팅 장지갑입니다. 내부에 여러 칸의 카드 슬롯과 지폐 수납 공간이 있어 카드와 현금을 깔끔하게 정리할 수 있습니다.", "rows": [["모델", "페이던트 퀼팅 장지갑"], ["상태", "사진으로 확인해 주세요"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/chanel_patent_long_wallet/01.jpg", "img/chanel_patent_long_wallet/02.jpg", "img/chanel_patent_long_wallet/03.jpg", "img/chanel_patent_long_wallet/04.jpg", "img/chanel_patent_long_wallet/05.jpg", "img/chanel_patent_long_wallet/06.jpg", "img/chanel_patent_long_wallet/07.jpg", "img/chanel_patent_long_wallet/08.jpg"]}, {"id": "loewe_anagram_tee_m", "brand": "로에베", "name": "로에베 아나그램 반팔티", "title": "아나그램 반팔티 하늘색", "price": 330000, "state": "새상품", "cat": "wear", "intro": "로에베 아나그램 로고가 포인트인 하늘색 반팔티입니다. 부드러운 면 소재로 편안하게 입으실 수 있으며, 남녀 공용으로 착용 가능합니다.", "rows": [["모델", "아나그램 반팔티 하늘색"], ["사이즈", "M (남녀 공용)"], ["소재", "면"], ["상태", "새상품"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/loewe_anagram_tee_m/01.jpg", "img/loewe_anagram_tee_m/02.jpg", "img/loewe_anagram_tee_m/03.jpg", "img/loewe_anagram_tee_m/04.jpg", "img/loewe_anagram_tee_m/05.jpg", "img/loewe_anagram_tee_m/06.jpg"]}, {"id": "lv_chain_tee_black_m", "brand": "루이비통", "name": "루이비통 체인 반팔티", "title": "체인 반팔티 블랙", "price": 490000, "state": "새상품", "cat": "wear", "intro": "체인 패턴이 돋보이는 루이비통 반팔 티셔츠입니다. 깔끔한 블랙 색상에 고급스러운 디자인으로 어떤 하의와도 잘 어울립니다.", "rows": [["모델", "체인 반팔티 블랙"], ["사이즈", "M"], ["상태", "새상품"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/lv_chain_tee_black_m/01.jpg", "img/lv_chain_tee_black_m/02.jpg", "img/lv_chain_tee_black_m/03.jpg", "img/lv_chain_tee_black_m/04.jpg", "img/lv_chain_tee_black_m/05.jpg"]}, {"id": "chanel_espadrille_mule_yellow", "brand": "샤넬", "name": "샤넬 에스파듀 뮬 옐로우", "title": "에스파듀 뮬 옐로우", "price": 950000, "state": "오염, 흠집 없음", "cat": "shoes", "intro": "시원한 여름 느낌의 소재와 옐로우 컬러가 돋보이는 샤넬 에스파듀 뮬입니다. 편안하게 신기 좋은 디자인으로 데일리 슈즈로 좋습니다.", "rows": [["모델", "에스파듀 뮬 옐로우"], ["상태", "오염, 흠집 없음"], ["특이 사항", "몇 차례 착용하여 바닥에 사용 흔적이 있습니다"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/chanel_espadrille_mule_yellow/01.jpg", "img/chanel_espadrille_mule_yellow/02.jpg", "img/chanel_espadrille_mule_yellow/03.jpg", "img/chanel_espadrille_mule_yellow/04.jpg", "img/chanel_espadrille_mule_yellow/05.jpg"]}, {"id": "celine_oval_sunglasses_black", "brand": "셀린느", "name": "셀린느 오벌 선글라스", "title": "블랙 오벌 선글라스", "price": 490000, "state": "최상급 (1~2회 착용)", "cat": "acc", "intro": "세련된 디자인의 셀린느 블랙 오벌 선글라스입니다. 렌즈에 은은하게 비치는 로고가 매력적이며 데일리로 착용하기 좋습니다.", "rows": [["모델", "블랙 오벌 선글라스"], ["상태", "최상급 (1~2회 착용)"], ["구성", "가죽 케이스"], ["교환·반품", "불가"]], "auth": "정품입니다.", "imgs": ["img/celine_oval_sunglasses_black/01.jpg", "img/celine_oval_sunglasses_black/02.jpg", "img/celine_oval_sunglasses_black/03.jpg", "img/celine_oval_sunglasses_black/04.jpg"]}, {"id": "gucci_gg0367s_sunglasses", "brand": "구찌", "name": "구찌 꿀벌 선글라스", "title": "GG0367S 블랙 꿀벌 선글라스", "price": 250000, "state": "", "cat": "acc", "intro": "고급스러운 디자인이 돋보이는 구찌 블랙 꿀벌 선글라스입니다. 이탈리아에서 제작된 제품으로 어떤 스타일에도 멋스럽게 어울립니다.", "rows": [["모델", "GG0367S 블랙 꿀벌 선글라스"], ["사이즈", "53□24-135"], ["제조", "이탈리아"], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/gucci_gg0367s_sunglasses/01.jpg", "img/gucci_gg0367s_sunglasses/02.jpg", "img/gucci_gg0367s_sunglasses/03.jpg", "img/gucci_gg0367s_sunglasses/04.jpg", "img/gucci_gg0367s_sunglasses/05.jpg", "img/gucci_gg0367s_sunglasses/06.jpg"]}, {"id": "chanel_caviar_long_wallet", "brand": "샤넬", "name": "샤넬 캐비어 장지갑", "title": "클래식 캐비어 장지갑 블랙", "price": 700000, "state": "최상급", "cat": "wallet", "intro": "클래식한 디자인의 샤넬 캐비어 장지갑입니다. 수납 공간이 넉넉해 실용적이며, 고급스러운 블랙 색상으로 선물용으로도 좋습니다.", "rows": [["모델", "클래식 캐비어 장지갑 블랙"], ["상태", "최상급"]], "auth": "정품입니다.", "imgs": ["img/chanel_caviar_long_wallet/01.jpg", "img/chanel_caviar_long_wallet/02.jpg", "img/chanel_caviar_long_wallet/03.jpg", "img/chanel_caviar_long_wallet/04.jpg"]}, {"id": "pearly_gates_padding_vest", "brand": "PEARLY GATES", "name": "피어리게이츠 패딩 조끼", "title": "패딩 조끼", "price": 120000, "state": "최상품", "cat": "wear", "intro": "패턴이 돋보이는 PEARLY GATES 패딩 조끼입니다. 가볍고 따뜻해 간절기에 입기 좋으며, 활동량이 많은 분들께 편안합니다.", "rows": [["모델", "패딩 조끼"], ["사이즈", "2"], ["상태", "최상품"]], "auth": "정품입니다.", "imgs": ["img/pearly_gates_padding_vest/01.jpg", "img/pearly_gates_padding_vest/02.jpg", "img/pearly_gates_padding_vest/03.jpg", "img/pearly_gates_padding_vest/04.jpg", "img/pearly_gates_padding_vest/05.jpg", "img/pearly_gates_padding_vest/06.jpg"]}, {"id": "lv_monogram_signet_ring", "brand": "루이비통", "name": "루이비통 시그넷링", "title": "LV 모노그램 시그넷링", "price": 430000, "state": "최상급", "cat": "acc", "intro": "루이비통의 시그니처 모노그램이 돋보이는 반지입니다. 가죽 포인트가 세련되고 고급스러운 인상을 주며, 풀박스 구성으로 선물용으로도 좋습니다.", "rows": [["모델", "LV 모노그램 시그넷링"], ["상태", "최상급"], ["구성", "풀박스"], ["교환·반품", "불가"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/lv_monogram_signet_ring/01.jpg", "img/lv_monogram_signet_ring/02.jpg", "img/lv_monogram_signet_ring/03.jpg"]}, {"id": "lv_runaway_sneakers_brown", "brand": "루이비통", "name": "루이비통 런어웨이 브라운", "title": "런어웨이 스니커즈 브라운", "price": 900000, "state": "최상급 (3회 정도 착용)", "cat": "shoes", "intro": "고급스러운 모노그램 패턴과 깔끔한 디자인이 돋보이는 루이비통 런어웨이 스니커즈입니다. 어떤 코디에도 잘 어울려 데일리로 신기 좋습니다.", "rows": [["모델", "런어웨이 스니커즈 브라운"], ["상태", "최상급 (3회 정도 착용)"], ["특이 사항", "까짐, 찢어짐, 흠집 없음. 바닥에 신은 흔적이 있고, 밑창 테두리에 사용 흔적이 조금 있습니다."], ["교환·반품", "불가"]], "auth": null, "imgs": ["img/lv_runaway_sneakers_brown/01.jpg", "img/lv_runaway_sneakers_brown/02.jpg", "img/lv_runaway_sneakers_brown/03.jpg", "img/lv_runaway_sneakers_brown/04.jpg", "img/lv_runaway_sneakers_brown/05.jpg", "img/lv_runaway_sneakers_brown/06.jpg"]}, {"id": "lv_keyring_m69008", "brand": "루이비통", "name": "루이비통 키링 M69008", "title": "LV 키링 M69008 핑크 마론", "price": 520000, "state": "새상품", "cat": "acc", "intro": "핑크 마론 색상으로 포인트를 주기 좋은 루이비통 LV 키링입니다. 선물용으로도 좋은 상품입니다.", "rows": [["모델", "LV 키링 M69008 핑크 마론"], ["상태", "새상품"], ["구성", "풀박스"], ["교환·반품", "불가"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/lv_keyring_m69008/01.jpg", "img/lv_keyring_m69008/02.jpg", "img/lv_keyring_m69008/03.jpg", "img/lv_keyring_m69008/04.jpg", "img/lv_keyring_m69008/05.jpg", "img/lv_keyring_m69008/06.jpg"]}, {"id": "lv_denim_monogram_sneakers", "brand": "루이비통", "name": "루이비통 데님 스니커즈", "title": "데님 모노그램 스니커즈", "price": 870000, "state": "새상품", "cat": "shoes", "intro": "깔끔한 디자인과 편안한 착용감의 루이비통 데님 모노그램 스니커즈입니다. 데일리로 활용하기 좋으며 선물용으로도 손색없습니다.", "rows": [["모델", "데님 모노그램 스니커즈"], ["상태", "새상품"], ["구성", "풀박스 (박스, 더스트백, 구매 영수증)"], ["교환·반품", "불가"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/lv_denim_monogram_sneakers/01.jpg", "img/lv_denim_monogram_sneakers/02.jpg", "img/lv_denim_monogram_sneakers/03.jpg", "img/lv_denim_monogram_sneakers/04.jpg", "img/lv_denim_monogram_sneakers/05.jpg", "img/lv_denim_monogram_sneakers/06.jpg", "img/lv_denim_monogram_sneakers/07.jpg", "img/lv_denim_monogram_sneakers/08.jpg", "img/lv_denim_monogram_sneakers/09.jpg", "img/lv_denim_monogram_sneakers/10.jpg"]}, {"id": "prada_milano_sneakers_black_35", "brand": "프라다", "name": "프라다 밀라노 블랙 35", "title": "밀라노 스니커즈 블랙", "price": 350000, "state": "최상급 (1회 착용 후 보관)", "cat": "shoes", "intro": "세련된 디자인으로 어떤 코디에도 잘 어울리는 프라다 밀라노 스니커즈입니다. 에어가 있어 오래 신어도 편안하고, 약간의 굽이 있어 라인이 예쁩니다.", "rows": [["모델", "밀라노 스니커즈 블랙"], ["사이즈", "35"], ["상태", "최상급 (1회 착용 후 보관)"], ["구성", "박스, 더스트백"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/prada_milano_sneakers_black_35/01.jpg", "img/prada_milano_sneakers_black_35/02.jpg", "img/prada_milano_sneakers_black_35/03.jpg", "img/prada_milano_sneakers_black_35/04.jpg", "img/prada_milano_sneakers_black_35/05.jpg", "img/prada_milano_sneakers_black_35/06.jpg", "img/prada_milano_sneakers_black_35/07.jpg"]}, {"id": "prada_enamel_sneakers_black", "brand": "프라다", "name": "프라다 애나멜 스니커즈", "title": "블랙 애나멜 스니커즈 (4E 3090)", "price": 150000, "state": "6회 정도 착용", "cat": "shoes", "intro": "깔끔한 디자인과 고급스러운 애나멜 소재가 돋보이는 프라다 스니커즈입니다. 편안한 착용감으로 데일리로 신기 좋습니다.", "rows": [["모델", "블랙 애나멜 스니커즈 (4E 3090)"], ["상태", "6회 정도 착용"], ["특이 사항", "애나멜 소재 특성상 신으면서 생기는 자연스러운 잔주름이 있습니다"], ["구성", "신발 더스트백"], ["교환·반품", "단순 변심 반품 불가"]], "auth": "정품이 아닐 경우 100% 환불해 드립니다.", "imgs": ["img/prada_enamel_sneakers_black/01.jpg", "img/prada_enamel_sneakers_black/02.jpg", "img/prada_enamel_sneakers_black/03.jpg", "img/prada_enamel_sneakers_black/04.jpg", "img/prada_enamel_sneakers_black/05.jpg", "img/prada_enamel_sneakers_black/06.jpg", "img/prada_enamel_sneakers_black/07.jpg", "img/prada_enamel_sneakers_black/08.jpg"]}];
+// 엣지걸 당근 프로필: 웹 주소 + 휴대폰 당근 앱 바로 열기 주소
+const WEB_URL = "https://www.daangn.com/kr/local-profile/19621157/";
+const APP_URL = "karrot://minikarrot/router?navbar=false&scrollable=false&remote=" +
+  encodeURIComponent("https://bizprofile.karrotwebview.com/local_profiles/19621157/home");
+const CATS = [["all","전체"],["bag","가방"],["wallet","지갑"],["shoes","신발"],["wear","의류·모자"],["acc","시계·주얼리·잡화"]];
+const BRANDS = Object.entries(ITEMS.reduce((m,i)=>(m[i.brand]=(m[i.brand]||0)+1,m),{})).sort((a,b)=>b[1]-a[1]);
+const won = n => n.toLocaleString("ko-KR") + "원";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cur = "all", brand = "all";
+
+// 휴대폰이면 당근 앱을 먼저 열고, 앱이 없으면 웹 프로필로 이동
+function askDaangn(e){
+  e.preventDefault();
+  if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) { window.open(WEB_URL, "_blank", "noopener"); return; }
+  const t = setTimeout(() => { location.href = WEB_URL; }, 1600);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) clearTimeout(t); }, { once: true });
+  location.href = APP_URL;
+}
+document.addEventListener("click", e => { const a = e.target.closest(".ask"); if (a) askDaangn(e); });
+
+function renderTabs(){
+  tabs.innerHTML = CATS.filter(([k]) => k==="all" || ITEMS.some(i=>i.cat===k))
+    .map(([k,l]) => `<button class="tab" aria-pressed="${k===cur}" data-k="${k}">${l}</button>`).join("");
+  btabs.innerHTML = [["all", ITEMS.length], ...BRANDS]
+    .map(([b,n]) => `<button class="tab" aria-pressed="${b===brand}" data-b="${esc(b)}">${b==="all"?"모든 브랜드":esc(b)} ${n}</button>`).join("");
+}
+function renderGrid(){
+  const list = ITEMS.filter(i => (cur==="all" || i.cat===cur) && (brand==="all" || i.brand===brand));
+  count.textContent = `상품 ${list.length}개`;
+  if (!list.length) { grid.innerHTML = `<div class="empty">이 조건에 맞는 상품이 아직 없어요.</div>`; return; }
+  grid.innerHTML = list.map(i => `
+    <button class="item" data-id="${i.id}">
+      <div class="ph"><img loading="lazy" src="${i.imgs[0]}" alt="${esc(i.brand)} ${esc(i.title)}"><span class="n">${i.imgs.length}장</span></div>
+      <div class="b">${esc(i.brand)}</div>
+      <div class="t">${esc(i.title)}</div>
+      <div class="s">${esc(i.state)}</div>
+      <div class="p">${won(i.price)}</div>
+    </button>`).join("");
+}
+function open(id){
+  const i = ITEMS.find(x => x.id===id);
+  detail.innerHTML = `
+    <div>
+      <button class="close" aria-label="닫기" onclick="dlg.close()">×</button>
+      <div class="gal" id="gal">${i.imgs.map(s=>`<img src="${s}" alt="">`).join("")}</div>
+      <div class="thumbs" id="th">${i.imgs.map((s,n)=>`<button data-n="${n}" class="${n?"":"on"}"><img src="${s}" alt=""></button>`).join("")}</div>
+    </div>
+    <div class="info">
+      <div class="b">${esc(i.brand)}</div>
+      <div class="t">${esc(i.title)}</div>
+      <div class="p">${won(i.price)}</div>
+      <p class="intro">${esc(i.intro)}</p>
+      <table>${i.rows.map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</table>
+      ${i.auth ? `<p class="auth">${esc(i.auth)}</p>` : ""}
+      <a class="btn ask" href="${WEB_URL}">당근에서 문의하기</a>
+      <p class="note">채팅에서 "${esc(i.brand)} ${esc(i.title)}" 상품이라고 말씀해 주세요.</p>
+    </div>`;
+  const gal = document.getElementById("gal"), th = document.getElementById("th");
+  th.onclick = e => { const b=e.target.closest("button"); if(b) gal.scrollTo({left: gal.clientWidth*b.dataset.n, behavior:"smooth"}); };
+  gal.onscroll = () => { const n=Math.round(gal.scrollLeft/gal.clientWidth); th.querySelectorAll("button").forEach((b,k)=>b.classList.toggle("on",k===n)); };
+  dlg.showModal(); detail.scrollTop = 0;
+}
+tabs.onclick = e => { const b=e.target.closest(".tab"); if(!b) return; cur=b.dataset.k; renderTabs(); renderGrid(); };
+btabs.onclick = e => { const b=e.target.closest(".tab"); if(!b) return; brand=b.dataset.b; renderTabs(); renderGrid(); };
+grid.onclick = e => { const b=e.target.closest(".item"); if(b) open(b.dataset.id); };
+dlg.onclick = e => { if(e.target===dlg) dlg.close(); };
+document.querySelectorAll("a.ask").forEach(a => a.href = WEB_URL);
+renderTabs(); renderGrid();
+</script>
+</body>
+</html>
