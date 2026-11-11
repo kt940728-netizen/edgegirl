@@ -91,6 +91,15 @@ th{width:84px;color:var(--sub);font-weight:500}
 .thumbs button{flex:none;width:52px;height:52px;border:1px solid var(--line);opacity:.55}
 .thumbs button.on{opacity:1;border-color:var(--ink)}
 .thumbs img{width:100%;height:100%;object-fit:cover}
+.m{display:none}
+@media(max-width:819px){
+  dialog{max-width:none;width:100%;height:100%;max-height:none;margin:0}
+  .d{height:100%;max-height:none;overscroll-behavior:contain}
+  .close{width:44px;height:44px;font-size:24px;margin:12px 12px -56px 0;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  .info .ask{position:sticky;bottom:calc(12px + env(safe-area-inset-bottom));box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:2}
+  .info{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+}
+@media(max-width:600px){.sep{display:none}.m{display:inline}.brands{font-size:14px;line-height:1.9}}
 </style>
 </head>
 <body>
@@ -98,7 +107,7 @@ th{width:84px;color:var(--sub);font-weight:500}
   <img src="img/logo.jpg" alt="엣지걸 로고">
   <div class="word">EDGE GIRL</div>
   <div class="tag">명품 · 중고명품 셀렉트 숍 &nbsp;|&nbsp; 파주 운정</div>
-  <div class="brands">LOUIS VUITTON · CHANEL · GUCCI · PRADA · GOYARD</div>
+  <div class="brands">LOUIS VUITTON · CHANEL · GUCCI<span class="sep"> · </span><br class="m">PRADA · GOYARD</div>
 </header>
 
 <nav><div class="tabs" id="tabs"></div><div class="tabs brands-row" id="btabs"></div></nav>
@@ -215,13 +224,14 @@ function open(id){
   const gw = document.getElementById("gw");
   bindCarousel(gw);
   gw.addEventListener("slide", e => th.querySelectorAll("button").forEach((b,k)=>b.classList.toggle("on",k===e.detail)));
-  dlg.showModal(); detail.scrollTop = 0;
+  dlg.showModal(); detail.scrollTop = 0; document.documentElement.style.overflow = "hidden";
 }
 tabs.onclick = e => { const b=e.target.closest(".tab"); if(!b) return; cur=b.dataset.k; renderTabs(); renderGrid(); };
 btabs.onclick = e => { const b=e.target.closest(".tab"); if(!b) return; brand=b.dataset.b; renderTabs(); renderGrid(); };
 grid.onclick = e => { if(e.target.closest(".arw")) return; const b=e.target.closest(".item"); if(b) open(b.dataset.id); };
 grid.onkeydown = e => { if(e.key==="Enter"){ const b=e.target.closest(".item"); if(b) open(b.dataset.id); } };
 dlg.onclick = e => { if(e.target===dlg) dlg.close(); };
+dlg.addEventListener("close", () => document.documentElement.style.overflow = "");
 document.querySelectorAll("a.ask").forEach(a => a.href = WEB_URL);
 renderTabs(); renderGrid();
 </script>
