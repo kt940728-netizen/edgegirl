@@ -109,6 +109,13 @@ th{width:84px;color:var(--sub);font-weight:500}
 }
 @media(max-width:600px){.sep{display:none}.m{display:inline}.brands{font-size:14px;line-height:1.9}}
 .btn.buy{background:#176940;color:#fff;margin-bottom:8px}
+/* 상세 매장 안내 */
+.shop{margin-top:24px;padding:22px 16px;background:#f4f3f0;border-radius:8px;text-align:center}
+.shop h4{font-size:13px;font-weight:700;color:#555;margin-top:16px}
+.shop h4:first-child{margin-top:0}
+.shop .big{display:block;margin-top:4px;font-size:22px;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.shop p{margin-top:4px;font-size:14px;color:#3d3a35;line-height:1.6}
+.shop .acct{font-size:15px;font-weight:600}
 /* 품절 */
 .sold-tag{position:absolute;left:8px;top:8px;background:#151412;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;z-index:1;pointer-events:none}
 .item.sold .car img{opacity:.45}
@@ -145,7 +152,7 @@ th{width:84px;color:var(--sub);font-weight:500}
   <b>엣지걸 (EDGE GIRL)</b><br>
   대표자 고현정 · 사업자등록번호 794-68-00202<br>
   통신판매업 신고번호 제2026-경기파주-4583호<br>
-  주소 경기도 파주시 심학산로 628, 18층 1830호 (야당동, 케이힐스)<br>
+  주소 경기도 파주시 심학산로 628, 11층 1130호 (야당동, 케이힐스)<br>
   전화 080-003-1004 (당근 안심번호) · 채팅 문의는 당근에서 24시간 받아요<br>
   상품 사진은 실제 판매 상품입니다. 판매가 완료된 상품은 순차적으로 정리됩니다.
 </footer>
@@ -158,7 +165,13 @@ let view = "recent";
 const store = "https://smartstore.naver.com/edgegirlstore";
 const buy = i => `<a class="btn buy" href="${store}/products/${i.storeId}" target="_blank" rel="noopener">스마트스토어에서 구매</a>`;
 // 엣지걸 당근 프로필: 웹 주소 + 휴대폰 당근 앱 바로 열기 주소
-const WEB_URL = "https://www.daangn.com/kr/local-profile/19621157/";
+// 상세 맨 아래 매장 안내 (사장님 요청 11/16)
+const shopInfo = `<div class="shop">
+  <h4>상품·교환 문의</h4><a class="big" href="tel:0800031004">080-003-1004</a>
+  <h4>입금 계좌</h4><p class="acct">국민은행 469902-04-139033<br>예금주 고현정</p>
+  <h4>매장 주소</h4><p>경기도 파주시 심학산로 628, 11층 1130호<br>(야당동, 케이힐스)</p>
+</div>`;
+const WEB_URL ="https://www.daangn.com/kr/local-profile/19621157/";
 const APP_URL = "karrot://minikarrot/router?navbar=false&scrollable=false&remote=" +
   encodeURIComponent("https://bizprofile.karrotwebview.com/local_profiles/19621157/home");
 const CATS = [["all","전체"],["bag","가방"],["wallet","지갑"],["shoes","신발"],["wear","의류·모자"],["acc","시계·주얼리·잡화"]];
@@ -265,6 +278,7 @@ function open(id){
       ${i.sold ? `<a class="btn ask" href="${WEB_URL}">비슷한 상품 당근에서 문의하기</a>` : `<a class="btn ask" href="${WEB_URL}" data-msg="${esc(`안녕하세요, 엣지걸 사이트 보고 연락드려요. ${i.brand} ${i.title} (${won(i.price)}) 상품 문의드립니다.`)}">당근에서 문의하기</a>`}
       <p class="note">누르면 문의 내용이 자동으로 복사돼요.<br>당근 채팅창을 길게 눌러 붙여넣기만 하시면 돼요.</p>
       <p class="fav">프로필에서 <b>단골</b>을 맺어 주시면<br>새 상품 소식을 먼저 알려 드려요.</p>
+      ${shopInfo}
     </div>`;
   const gal = document.getElementById("gal"), th = document.getElementById("th");
   th.onclick = e => { const b=e.target.closest("button"); if(b) gal.scrollTo({left: gal.clientWidth*b.dataset.n, behavior:"smooth"}); };
