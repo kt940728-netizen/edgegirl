@@ -116,6 +116,9 @@ th{width:84px;color:var(--sub);font-weight:500}
 .shop .big{display:block;margin-top:4px;font-size:22px;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em}
 .shop p{margin-top:4px;font-size:14px;color:#3d3a35;line-height:1.6}
 .shop .acct{font-size:15px;font-weight:600}
+.shopimg{display:block;width:100%;height:auto;margin-top:24px;border-radius:8px}
+.storebox{max-width:1180px;margin:0 auto;padding:10px 16px 0}
+.storebox img{display:block;width:100%;height:auto;border-radius:10px}
 /* 품절 */
 .sold-tag{position:absolute;left:8px;top:8px;background:#151412;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;z-index:1;pointer-events:none}
 .item.sold .car img{opacity:.45}
@@ -148,6 +151,8 @@ th{width:84px;color:var(--sub);font-weight:500}
   <p class="fav">당근에서 엣지걸 <b>단골</b>을 맺어 주시면<br>새로 들어온 상품 소식을 가장 먼저 받아보실 수 있어요.</p>
 </section>
 
+<section class="storebox"><picture><source media="(max-width:700px)" srcset="img/store/store_info_vertical.jpg"><img src="img/store/store_info_wide.jpg" alt="매장 안내. 상품·교환 문의 080-003-1004. 입금 계좌 국민은행 469902-04-139033 예금주 고현정. 매장 주소 경기도 파주시 심학산로 628, 11층 1130호 (야당동, 케이힐스)" loading="lazy"></picture></section>
+
 <footer>
   <b>엣지걸 (EDGE GIRL)</b><br>
   대표자 고현정 · 사업자등록번호 794-68-00202<br>
@@ -166,11 +171,7 @@ const store = "https://smartstore.naver.com/edgegirlstore";
 const buy = i => `<a class="btn buy" href="${store}/products/${i.storeId}" target="_blank" rel="noopener">스마트스토어에서 구매</a>`;
 // 엣지걸 당근 프로필: 웹 주소 + 휴대폰 당근 앱 바로 열기 주소
 // 상세 맨 아래 매장 안내 (사장님 요청 11/16)
-const shopInfo = `<div class="shop">
-  <h4>상품·교환 문의</h4><a class="big" href="tel:0800031004">080-003-1004</a>
-  <h4>입금 계좌</h4><p class="acct">국민은행 469902-04-139033<br>예금주 고현정</p>
-  <h4>매장 주소</h4><p>경기도 파주시 심학산로 628, 11층 1130호<br>(야당동, 케이힐스)</p>
-</div>`;
+const shopInfo = `<img class="shopimg" src="img/store/store_info_vertical.jpg" alt="매장 안내. 상품·교환 문의 080-003-1004. 입금 계좌 국민은행 469902-04-139033 예금주 고현정. 매장 주소 경기도 파주시 심학산로 628, 11층 1130호 (야당동, 케이힐스)" loading="lazy">`;
 const WEB_URL ="https://www.daangn.com/kr/local-profile/19621157/";
 const APP_URL = "karrot://minikarrot/router?navbar=false&scrollable=false&remote=" +
   encodeURIComponent("https://bizprofile.karrotwebview.com/local_profiles/19621157/home");
