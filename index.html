@@ -124,14 +124,14 @@ th{width:84px;color:var(--sub);font-weight:500}
 .item.sold .car img{opacity:.45}
 .item.sold .p,.info.sold .p{color:var(--sub);text-decoration:line-through}
 .soldnote{display:block;margin-top:20px;padding:14px;text-align:center;border-radius:6px;background:#eceae6;color:#555;font-weight:600;font-size:15px}
+.opening-banner{padding:0;overflow:hidden}
+.opening-banner img{display:block;width:100%;height:auto;margin:0;border:0;border-radius:0}
+@media(max-width:600px){.opening-banner img{width:190%;max-width:none;margin-left:-45%}}
 </style>
 </head>
 <body>
-<header>
-  <img src="img/logo.jpg" alt="엣지걸 로고">
-  <div class="word">EDGE GIRL</div>
-  <div class="tag">명품 · 중고명품 셀렉트 숍 &nbsp;|&nbsp; 파주 운정</div>
-  <div class="brands">LOUIS VUITTON · CHANEL · GUCCI<span class="sep"> · </span><br class="m">PRADA · GOYARD</div>
+<header class="opening-banner">
+  <img src="img/edgegirl-opening-banner.jpg" width="1920" height="400" alt="EDGE GIRL · 2019.07.01 오픈 · 파주 운정 명품·중고명품 셀렉트 숍">
 </header>
 
 <nav><div class="tabs" id="views" aria-label="상품 보기"><button class="tab" data-view="recent" aria-pressed="true">최근 등록 상품</button><button class="tab" data-view="budget" aria-pressed="false">50만원 이하</button></div><div class="tabs" id="tabs"></div><div class="tabs brands-row" id="btabs"></div></nav>
